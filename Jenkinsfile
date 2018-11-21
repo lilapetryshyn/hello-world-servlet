@@ -5,7 +5,7 @@ pipeline {
     stage("Create instance") {
       steps {
         script {
-          //sh '''aws ec2 run-instances --image-id ami-6cd6f714 --count 1 --instance-type t2.micro --key-name ec2 --security-groups TomcatSG > instance.json'''
+          sh '''aws ec2 run-instances --image-id ami-6cd6f714 --count 1 --instance-type t2.micro --key-name ec2 --security-groups TomcatSG > instance.json'''
           INSTANCE_ID = sh(returnStdout: true, script: '''cat instance.json | grep -iw InstanceId | cut -d'"' -f4 | tail -1''')
           println "${INSTANCE_ID}"
           String FILTER = "Name=instance-id, Values=${INSTANCE_ID}"
