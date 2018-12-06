@@ -11,7 +11,7 @@ pipeline {
           String FILTER = "Name=instance-id, Values=${INSTANCE_ID}"
           echo "Waiting before instance will running"
           sh "aws ec2 wait instance-running --filters '${FILTER}'"
-          env.INSTANCE_IP = sh(returnStdout: true, script: """aws ec2 describe-instances --filters '${FILTER}' | grep -iw PublicIP | cut -d'"' -f4 | tail -1""")
+          env.INSTANCE_IP = sh(returnStdout: true, script: """aws ec2 describe-instances --filters '${FILTER}' | grep -iw PublicIP | cut -d'"' -f4 | tail -1""").toString().replaceAll('\n', '')
         }
       }
     }
