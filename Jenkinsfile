@@ -1,5 +1,6 @@
 pipeline {
   agent docker { image 'tomcat8' }
+  stages {
     stage("Build project") {
       steps {
         checkout([$class: 'GitSCM', branches: [[name: '*/docker']],
