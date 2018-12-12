@@ -1,5 +1,5 @@
 pipeline {
-  agent docker { image 'tomcat8' }
+  agent any
   stages {
     stage("Build project") {
       steps {
