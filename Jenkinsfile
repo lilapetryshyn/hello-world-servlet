@@ -19,7 +19,7 @@ pipeline {
     stage("Docker build") {
       steps {
         script {
-          def testImage = docker.build("test-tomcat")
+          def testImage = docker.build("test-tomcat", './')
         }
       }
     }
