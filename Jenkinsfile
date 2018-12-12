@@ -26,7 +26,7 @@ pipeline {
     stage('Run container') {
       steps {
         script {
-          sh "docker run -d -p 8000:8000 test-tomcat"
+          sh "docker run -d -p 8000:8080 test-tomcat"
         }
       }
     }
