@@ -23,7 +23,7 @@ pipeline {
                                submoduleCfg: [],
                                userRemoteConfigs: [[credentialsId: 'git-ssh',
                                url: 'https://github.com/lilapetryshyn/tomcat-ansible.git']]])
-        ansiblePlaybook become: true, credentialsId: 'ec2-ssh', disableHostKeyChecking: true, inventory: 'tomcat-ansible/hosts', playbook: 'tomcat-ansible/site.yml'
+        ansiblePlaybook become: true, credentialsId: 'ec2-ssh', disableHostKeyChecking: true, inventory: 'tomcat-ansible/hosts', playbook: 'tomcat-ansible/docker.yml'
       }
     }
   }
